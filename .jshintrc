@@ -1,5 +1,6 @@
 {
   "esversion": 6,
   "node": true,
-  "quotmark": "single"
+  "quotmark": "single",
+  "-W117": false
 }
