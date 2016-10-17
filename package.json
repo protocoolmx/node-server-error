@@ -1,0 +1,22 @@
+{
+  "name": "node-server-error",
+  "version": "1.0.0",
+  "description": "server error package",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/protocoolmx/node-server-error.git"
+  },
+  "author": "Protocool",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/protocoolmx/node-server-error/issues"
+  },
+  "homepage": "https://github.com/protocoolmx/node-server-error#readme"
+}

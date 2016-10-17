@@ -2,9 +2,9 @@
 
 const util = require('util');
 
-function HSServerError(properties) {
+function ServerError(properties) {
   Error.call(this);
-  Error.captureStackTrace(this, HSServerError);
+  Error.captureStackTrace(this, ServerError);
 
   properties = (properties || {});
 
@@ -15,13 +15,13 @@ function HSServerError(properties) {
   this.code = properties.code || 'E_UNKNOWN';
 }
 
-util.inherits(HSServerError, Error);
+util.inherits(ServerError, Error);
 
-HSServerError.prototype.toString = function() {
+ServerError.prototype.toString = function() {
   return util.format('[%s (%s) %s]', this.name, this.code, this.message);
 };
 
-HSServerError.prototype.toJSON = function() {
+ServerError.prototype.toJSON = function() {
   return {
     status: this.status,
     code: this.code,
@@ -29,4 +29,4 @@ HSServerError.prototype.toJSON = function() {
   };
 };
 
-module.exports = HSServerError;
+module.exports = ServerError;
