@@ -12,11 +12,12 @@ $ npm install node-server-error --save
 
 ### ServerError(properties)
 
-`properties`:
+Properties
 
 * `status` Status number, defaults to `500`.
-* `code` : Some unique code that identifies the error, defaults to `"E_UNKNOWN"`.
-* `message` : A human readeable message describing the error, defaults to `"Encountered an unexpected error"`.
+* `code` Number code for unique identify error.
+* `type` Some unique code that identifies the error, defaults to `'E_UNKNOWN'`.
+* `message` A human readeable message describing the error, defaults to `'Encountered an unexpected error'`.
 
 ## Usage
 
@@ -28,18 +29,14 @@ let serverError = new ServerError();
 
 serverError.toString();
 // Output
-// {
-//   [ServerError: Encountered an unexpected error] name: 'ServerError',
-//   message: 'Encountered an unexpected error',
-//   status: 500,
-//   code: 'E_UNKNOWN'
-// }
+// [ServerError (E_UNKNOWN:0) Encountered an unexpected error]
 
 serverError.toJSON();
 // Output
 // {
 //   status: 500,
-//   code: 'E_UNKNOWN',
+//   code: 0,
+//   type: 'E_UNKNOWN',
 //   message: 'Encountered an unexpected error'
 // }
 ```
@@ -59,7 +56,8 @@ Override default properties
 if (/* some condition that means an error */) {
   throw new ServerError({
     status: 401,
-    code: 'E_UNAUTHORIZED',
+    code: 8520, // It could mean a unique error code.
+    type: 'E_UNAUTHORIZED',
     message: 'Unauhtorized access!'
   });
 }

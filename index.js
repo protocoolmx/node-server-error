@@ -12,19 +12,21 @@ function ServerError(properties) {
   this.message = properties.message || 'Encountered an unexpected error';
 
   this.status = properties.status || 500;
-  this.code = properties.code || 'E_UNKNOWN';
+  this.type = properties.type || 'E_UNKNOWN';
+  this.code = properties.code || 0;
 }
 
 util.inherits(ServerError, Error);
 
 ServerError.prototype.toString = function() {
-  return util.format('[%s (%s) %s]', this.name, this.code, this.message);
+  return util.format('[%s (%s:%s) %s]', this.name, this.type, this.code, this.message);
 };
 
 ServerError.prototype.toJSON = function() {
   return {
     status: this.status,
     code: this.code,
+    type: this.type,
     message: this.message
   };
 };
