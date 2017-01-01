@@ -7,12 +7,14 @@ describe('ServerError', function() {
   let ServerError;
   let serverErrorJSON = {
     status: 500,
-    code: 'E_UNKNOWN',
+    code: 0,
+    type: 'E_UNKNOWN',
     message: 'Encountered an unexpected error'
   };
   let badRequestJSON = {
     status: 400,
-    code: 'E_BAD_REQUEST',
+    code: 8520,
+    type: 'E_BAD_REQUEST',
     message: 'Bad Request Error'
   };
 
