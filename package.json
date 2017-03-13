@@ -1,7 +1,7 @@
 {
   "name": "node-server-error",
   "version": "0.2.0",
-  "description": "Node Server Error Class",
+  "description": "Server Error Class",
   "main": "index.js",
   "directories": {
     "test": "test"

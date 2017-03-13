@@ -1,6 +1,6 @@
 # node-server-error
 
-Node Server Error Class
+Server Error Class
 
 ## Install
 
@@ -14,10 +14,10 @@ $ npm install node-server-error --save
 
 Properties
 
-* `status` Status number, defaults to `500`.
-* `code` Number code for unique identify error.
-* `type` Some unique code that identifies the error, defaults to `'E_UNKNOWN'`.
-* `message` A human readeable message describing the error, defaults to `'Encountered an unexpected error'`.
+*   `status` (Number) - HTTP status response, defaults to `500`.
+*   `type` (String) - Some unique code that identifies the error, defaults to `'E_UNKNOWN'`.
+*   `code` (Number) - Number code for unique identify error, defaults to `0`.
+*   `message` (String) - A human readable message describing the error, defaults to `'Encountered an unexpected error'`.
 
 ## Usage
 
@@ -35,8 +35,8 @@ serverError.toJSON();
 // Output
 // {
 //   status: 500,
-//   code: 0,
 //   type: 'E_UNKNOWN',
+//   code: 0,
 //   message: 'Encountered an unexpected error'
 // }
 ```
@@ -56,8 +56,8 @@ Override default properties
 if (/* some condition that means an error */) {
   throw new ServerError({
     status: 401,
-    code: 8520, // It could mean a unique error code.
     type: 'E_UNAUTHORIZED',
+    code: 8520, // It could mean a unique error code.
     message: 'Unauhtorized access!'
   });
 }

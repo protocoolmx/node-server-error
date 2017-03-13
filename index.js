@@ -2,33 +2,34 @@
 
 const util = require('util');
 
-function ServerError(properties) {
-  Error.call(this);
-  Error.captureStackTrace(this, ServerError);
+class ServerError extends Error {
 
-  properties = (properties || {});
+  constructor(properties) {
+    properties = (properties || {});
 
-  this.name = this.constructor.name;
-  this.message = properties.message || 'Encountered an unexpected error';
+    super();
+    Error.captureStackTrace(this, ServerError);
 
-  this.status = properties.status || 500;
-  this.type = properties.type || 'E_UNKNOWN';
-  this.code = properties.code || 0;
+    this.name = this.constructor.name;
+
+    this.status = properties.status || 500;
+    this.type = properties.type || 'E_UNKNOWN';
+    this.code = properties.code || 0;
+    this.message = properties.message || 'Encountered an unexpected error';
+  }
+
+  toString() {
+    return util.format('[%s (%s:%s) %s]', this.name, this.type, this.code, this.message);
+  }
+
+  toJSON() {
+    return {
+      status: this.status,
+      code: this.code,
+      type: this.type,
+      message: this.message
+    };
+  }
 }
-
-util.inherits(ServerError, Error);
-
-ServerError.prototype.toString = function() {
-  return util.format('[%s (%s:%s) %s]', this.name, this.type, this.code, this.message);
-};
-
-ServerError.prototype.toJSON = function() {
-  return {
-    status: this.status,
-    code: this.code,
-    type: this.type,
-    message: this.message
-  };
-};
 
 module.exports = ServerError;
