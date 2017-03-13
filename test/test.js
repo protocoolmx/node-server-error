@@ -1,26 +1,22 @@
 'use strict';
 
-let assert = require('assert');
+const assert = require('assert');
+const ServerError = require('../index');
 
 describe('ServerError', function() {
 
-  let ServerError;
-  let serverErrorJSON = {
+  const serverErrorJSON = {
     status: 500,
     code: 0,
     type: 'E_UNKNOWN',
     message: 'Encountered an unexpected error'
   };
-  let badRequestJSON = {
+  const badRequestJSON = {
     status: 400,
     code: 8520,
     type: 'E_BAD_REQUEST',
     message: 'Bad Request Error'
   };
-
-  before('get ServerError', function() {
-    ServerError = require('../index');
-  });
 
   it('should exists', function() {
     assert(ServerError !== undefined);
