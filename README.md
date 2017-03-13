@@ -1,5 +1,7 @@
 # node-server-error
 
+[![npm version](https://badge.fury.io/js/node-server-error.svg)](https://badge.fury.io/js/node-server-error) [![Build Status](https://travis-ci.org/protocoolmx/node-server-error.svg?branch=master)](https://travis-ci.org/protocoolmx/node-server-error)
+
 Server Error Class
 
 ## Install
